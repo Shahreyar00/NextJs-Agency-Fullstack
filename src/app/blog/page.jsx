@@ -25,6 +25,8 @@ const posts = [
     }
 ]
 
+// createdAt = 2022-12-29T08:03:29.501+00:00
+
 const BlogPage = () => {
     return (
         <div className={styles.container}>
