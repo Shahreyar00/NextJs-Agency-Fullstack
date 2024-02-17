@@ -2,6 +2,11 @@ import Image from "next/image"
 import styles from "./postCard.module.css"
 import Link from "next/link"
 
+function shorten(str, maxLen, separator = ' ') {
+    if (str.length <= maxLen) return str;
+    return str.substr(0, str.lastIndexOf(separator, maxLen));
+}
+
 const PostCard = ({ post }) => {
     return (
         <div className={styles.container}>
@@ -13,7 +18,7 @@ const PostCard = ({ post }) => {
             </div>
             <div className={styles.bottom}>
                 <h1 className={styles.title}>{post.title}</h1>
-                <p className={styles.desc}>{post.body}</p>
+                <p className={styles.desc}>{shorten(post.body, 100)}...</p>
                 <Link className={styles.link} href={`/blog/${post.slug}`}>READ MORE</Link>
             </div>
         </div>

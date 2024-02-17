@@ -1,6 +1,11 @@
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
 
+export const metadata = {
+    title: "Momento - Blog Page",
+    description: "Blog description",
+};
+
 const posts = [
     {
         img: "https://images.pexels.com/photos/20184430/pexels-photo-20184430/free-photo-of-a-view-of-the-golden-gate-bridge-from-the-beach.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
