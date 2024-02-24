@@ -1,11 +1,14 @@
+import { getUser } from "@/lib/data";
 import styles from "./postUser.module.css";
 import Image from "next/image";
 
-const user = {
-    username: "Shahreyar Arif"
-}
+// const user = {
+//     username: "Shahreyar Arif"
+// }
 
 const postUser = async ({ userId }) => {
+    const user = await getUser(userId);
+
     return (
         <div className={styles.container}>
             <Image

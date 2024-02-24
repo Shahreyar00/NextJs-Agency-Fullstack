@@ -18,7 +18,7 @@ const PostCard = ({ post }) => {
             </div>
             <div className={styles.bottom}>
                 <h1 className={styles.title}>{post.title}</h1>
-                <p className={styles.desc}>{shorten(post.body, 100)}...</p>
+                <p className={styles.desc}>{shorten(post.desc, 100)}...</p>
                 <Link className={styles.link} href={`/blog/${post.slug}`}>READ MORE</Link>
             </div>
         </div>
