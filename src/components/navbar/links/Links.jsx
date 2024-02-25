@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./links.module.css";
 import NavLink from "./navLink/navLink";
 import Image from "next/image";
+import { handleLogout } from "@/lib/action";
 
 const links = [
     {
@@ -24,11 +25,11 @@ const links = [
     },
 ];
 
-const Links = () => {
+const Links = ({ session }) => {
     const [open, setOpen] = useState(false);
 
     // Temporary
-    const session = true;
+    // const session = true;
     const isAdmin = true;
 
     return (

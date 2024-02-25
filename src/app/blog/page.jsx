@@ -31,10 +31,26 @@ export const metadata = {
 //     }
 // ]
 
-// createdAt = 2022-12-29T08:03:29.501+00:00
+// Fetch data with an API
+const getData = async () => {
+    const res = await fetch("http://localhost:3000/api/blog", { next: { revalidate: 3600 } });
+
+    if (!res.ok) {
+        throw new Error("Something went wrong");
+    }
+
+    return res.json();
+};
+
+
 
 const BlogPage = async () => {
+
+    // Fetch data without API
     const posts = await getPosts();
+
+    // Fetch data with an API
+    // const posts = await getData();
 
     return (
         <div className={styles.container}>

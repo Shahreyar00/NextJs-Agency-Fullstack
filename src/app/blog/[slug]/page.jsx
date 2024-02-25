@@ -14,6 +14,17 @@ import { getPost } from "@/lib/data";
 //     desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi fugit, dolorem quos explicabo cum voluptas dignissimos? Suscipit harum consequatur expedita nesciunt dicta tempore! Veniam dolorum voluptas deserunt reiciendis corporis asperiores. Suscipit harum consequatur expedita nesciunt dicta tempore! Veniam dolorum voluptas deserunt reiciendis corporis asperiores",
 // }
 
+// Fetch data with an API
+const getData = async (slug) => {
+    const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
+
+    if (!res.ok) {
+        throw new Error("Something went wrong");
+    }
+
+    return res.json();
+};
+
 export const generateMetadata = async ({ params }) => {
     const { slug } = params;
 
@@ -27,7 +38,12 @@ export const generateMetadata = async ({ params }) => {
 
 const SinglePostPage = async ({ params }) => {
     const { slug } = params;
+
+    // Fetch data without an API
     const post = await getPost(slug);
+
+    // Fetch data with an API
+    // const post = await getData(slug);
 
     return (
         <div className={styles.container}>
