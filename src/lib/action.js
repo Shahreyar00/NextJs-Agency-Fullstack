@@ -11,14 +11,27 @@ export const addPost = async (prevState, formData) => {
     // const desc = formData.get("desc");
     // const slug = formData.get("slug");
 
-    const { title, desc, slug, userId } = Object.fromEntries(formData);
+    const { title, desc, slug, userId, img } = Object.fromEntries(formData);
+
+    const data = new FormData();
+    data.append("file", img);
+    data.append("upload_preset", "uploads");
 
     try {
         connectToDb();
+
+        // Uploading image to Cloudinary
+        const uploadRes = await fetch(process.env.CLOUDINARY_URL, {
+            method: "POST",
+            body: data,
+        });
+        const uploadData = await uploadRes.json();
+        const { url } = uploadData;
+
         const newPost = new Post({
             title,
             desc,
-            img,
+            img: url,
             userId,
             slug
         });
@@ -52,13 +65,27 @@ export const deletePost = async (formData) => {
 export const addUser = async (prevState, formData) => {
     const { username, email, password, img } = Object.fromEntries(formData);
 
+
+    const data = new FormData();
+    data.append("file", img);
+    data.append("upload_preset", "uploads");
+
     try {
         connectToDb();
+
+        // Uploading image to Cloudinary
+        const uploadRes = await fetch(process.env.CLOUDINARY_URL, {
+            method: "POST",
+            body: data,
+        });
+        const uploadData = await uploadRes.json();
+        const { url } = uploadData;
+
         const newUser = new User({
             username,
             email,
             password,
-            img,
+            img: url,
         });
 
         await newUser.save();
