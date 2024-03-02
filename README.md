@@ -30,3 +30,5 @@ CLOUDINARY_URL = your cloudinary url
 
 ****
 ![collage (2)](https://github.com/Shahreyar00/NextJs-FramerMotion/assets/70688937/c5aa21e2-1efc-4dd2-9d34-b4cc449e9e1f)
+****
+![screencapture-localhost-3000-admin-2024-03-02-20_10_28](https://github.com/Shahreyar00/NextJs-FramerMotion/assets/70688937/a283194c-e967-4ed2-b5ba-a12fcc30de70)
