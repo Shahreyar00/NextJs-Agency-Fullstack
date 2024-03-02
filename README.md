@@ -27,3 +27,6 @@ CLOUDINARY_URL = your cloudinary url
 * Blog Page - Only visible to logged in user 
 * Admin Page - Only visible to users with Admin access
 * Login and Register Pages
+
+****
+![collage (2)](https://github.com/Shahreyar00/NextJs-FramerMotion/assets/70688937/c5aa21e2-1efc-4dd2-9d34-b4cc449e9e1f)
